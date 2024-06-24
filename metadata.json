@@ -1,0 +1,26 @@
+[
+    {
+        "filename": ".DS_Store",
+        "title": "",
+        "date": "2023-01-01",
+        "tags": [
+            "example_tag"
+        ]
+    },
+    {
+        "filename": "report_DDX17_DDX5.html",
+        "title": "report_DDX17_DDX5",
+        "date": "2023-01-01",
+        "tags": [
+            "example_tag"
+        ]
+    },
+    {
+        "filename": "report_SAMD4A_SAMD4B.html",
+        "title": "report_SAMD4A_SAMD4B",
+        "date": "2023-01-01",
+        "tags": [
+            "example_tag"
+        ]
+    }
+]
