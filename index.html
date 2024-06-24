@@ -8,17 +8,42 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://rawgithub.com/BioComputingUP/ProSeqViewer/master/dist/assets/proseqviewer.css">
     <script src="https://rawgithub.com/BioComputingUP/ProSeqViewer/master/dist/sqv-bundle.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #search-container {
+            margin-bottom: 20px;
+        }
+        #report-list {
+            margin-top: 20px;
+        }
+        #report-content {
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .loading {
+            font-style: italic;
+            color: grey;
+        }
+    </style>
 </head>
 <body>
     <h1>Report Viewer</h1>
+    <div id="search-container">
+        <input type="text" id="search-box" placeholder="Type gene names...">
+        <div><i>e.g., DDX17 DDX5</i></div>
+    </div>
     <div id="report-list"></div>
     <div id="report-content"></div>
 
     <script>
+        let metadata = [];
+
         async function fetchMetadata() {
             const response = await fetch('metadata.json');
-            const metadata = await response.json();
-            return metadata;
+            metadata = await response.json();
         }
 
         async function fetchReportArchive() {
@@ -28,6 +53,7 @@
         }
 
         async function displayReport(filename) {
+            document.getElementById('report-content').innerHTML = '<div class="loading">Loading...</div>';
             const reportContent = await fetchReportContent(filename);
             document.getElementById('report-content').innerHTML = reportContent;
             // Re-evaluate the scripts in the loaded report content to ensure Plotly and MSA figures render
@@ -49,6 +75,7 @@
 
         function displayReportList(reports) {
             const reportList = document.getElementById('report-list');
+            reportList.innerHTML = '';  // Clear previous results
             reports.forEach(report => {
                 const reportItem = document.createElement('div');
                 reportItem.textContent = report.title;
@@ -58,9 +85,30 @@
             });
         }
 
+        function handleSearch() {
+            const query = document.getElementById('search-box').value.toLowerCase();
+            if (!query) {
+                document.getElementById('report-list').innerHTML = '';
+                return;
+            }
+
+            const queryGenes = query.split(' ').filter(Boolean);
+            let matchingReports = [];
+
+            if (queryGenes.length === 1) {
+                matchingReports = metadata.filter(report => report.genes.includes(queryGenes[0]));
+            } else {
+                matchingReports = metadata.filter(report => {
+                    return queryGenes.every(gene => report.genes.includes(gene));
+                });
+            }
+
+            displayReportList(matchingReports);
+        }
+
         async function init() {
-            const metadata = await fetchMetadata();
-            displayReportList(metadata);
+            await fetchMetadata();
+            document.getElementById('search-box').addEventListener('input', handleSearch);
         }
 
         init();
