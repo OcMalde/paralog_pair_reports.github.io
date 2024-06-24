@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Viewer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+    <!-- Ensure Plotly.js is included -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <h1>Report Viewer</h1>
@@ -27,6 +29,13 @@
         async function displayReport(filename) {
             const reportContent = await fetchReportContent(filename);
             document.getElementById('report-content').innerHTML = reportContent;
+            // Re-evaluate the scripts in the loaded report content to ensure Plotly figures render
+            const scripts = document.getElementById('report-content').getElementsByTagName('script');
+            for (const script of scripts) {
+                const newScript = document.createElement('script');
+                newScript.textContent = script.textContent;
+                document.body.appendChild(newScript);
+            }
         }
 
         async function fetchReportContent(filename) {
