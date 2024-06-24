@@ -49,6 +49,7 @@
         async function fetchMetadata() {
             const response = await fetch('metadata.json');
             metadata = await response.json();
+            console.log('Metadata loaded:', metadata);  // Debugging line
         }
 
         async function fetchReportArchive() {
@@ -108,6 +109,8 @@
             }
 
             const queryGenes = query.split(' ').filter(Boolean);
+            console.log('Query genes:', queryGenes);  // Debugging line
+
             let matchingReports = [];
 
             if (queryGenes.length === 1) {
@@ -117,6 +120,8 @@
                     return queryGenes.every(gene => report.genes.includes(gene));
                 });
             }
+
+            console.log('Matching reports:', matchingReports);  // Debugging line
 
             displayReportList(matchingReports);
         }
