@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+</head>
+<body>
+    <h1>Report Viewer</h1>
+    <div id="report-list"></div>
+    <div id="report-content"></div>
+
+    <script>
+        async function fetchMetadata() {
+            const response = await fetch('metadata.json');
+            const metadata = await response.json();
+            return metadata;
+        }
+
+        async function fetchReportArchive() {
+            const response = await fetch('reports.zip');
+            const arrayBuffer = await response.arrayBuffer();
+            return arrayBuffer;
+        }
+
+        async function displayReport(filename) {
+            const reportContent = await fetchReportContent(filename);
+            document.getElementById('report-content').innerHTML = reportContent;
+        }
+
+        async function fetchReportContent(filename) {
+            const arrayBuffer = await fetchReportArchive();
+            const zip = new JSZip();
+            const content = await zip.loadAsync(arrayBuffer);
+            const fileContent = await content.file(filename).async('string');
+            return fileContent;
+        }
+
+        function displayReportList(reports) {
+            const reportList = document.getElementById('report-list');
+            reports.forEach(report => {
+                const reportItem = document.createElement('div');
+                reportItem.textContent = report.title;
+                reportItem.style.cursor = 'pointer';
+                reportItem.onclick = () => displayReport(report.filename);
+                reportList.appendChild(reportItem);
+            });
+        }
+
+        async function init() {
+            const metadata = await fetchMetadata();
+            displayReportList(metadata);
+        }
+
+        init();
+    </script>
+</body>
+</html>
