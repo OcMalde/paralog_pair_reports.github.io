@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Viewer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-    <!-- Ensure Plotly.js is included -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Add necessary MSA library scripts here -->
+    <script src="https://cdn.biojs.net/biojs-vis-msaview/latest/biojs-vis-msaview.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.biojs.net/biojs-vis-msaview/latest/biojs-vis-msaview.min.css">
 </head>
 <body>
     <h1>Report Viewer</h1>
@@ -29,7 +31,7 @@
         async function displayReport(filename) {
             const reportContent = await fetchReportContent(filename);
             document.getElementById('report-content').innerHTML = reportContent;
-            // Re-evaluate the scripts in the loaded report content to ensure Plotly figures render
+            // Re-evaluate the scripts in the loaded report content to ensure Plotly and MSA figures render
             const scripts = document.getElementById('report-content').getElementsByTagName('script');
             for (const script of scripts) {
                 const newScript = document.createElement('script');
