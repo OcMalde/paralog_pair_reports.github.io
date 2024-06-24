@@ -101,7 +101,7 @@
         }
 
         function handleSearch() {
-            const query = document.getElementById('search-box').value.toLowerCase();
+            const query = document.getElementById('search-box').value.trim().toLowerCase();
             console.log('Searching for:', query);  // Debugging line
             if (!query) {
                 document.getElementById('report-list').innerHTML = '';
@@ -114,10 +114,11 @@
             let matchingReports = [];
 
             if (queryGenes.length === 1) {
-                matchingReports = metadata.filter(report => report.genes.includes(queryGenes[0]));
+                matchingReports = metadata.filter(report => report.genes.map(gene => gene.toLowerCase()).includes(queryGenes[0]));
             } else {
                 matchingReports = metadata.filter(report => {
-                    return queryGenes.every(gene => report.genes.includes(gene));
+                    const reportGenes = report.genes.map(gene => gene.toLowerCase());
+                    return queryGenes.every(gene => reportGenes.includes(gene));
                 });
             }
 
