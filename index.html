@@ -6,8 +6,8 @@
     <title>Report Viewer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/BioComputingUP/ProSeqViewer/master/dist/assets/proseqviewer.css">
-    <script src="https://rawgithub.com/BioComputingUP/ProSeqViewer/master/dist/sqv-bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/BioComputingUP/ProSeqViewer/master/dist/assets/proseqviewer.css">
+    <script src="https://raw.githubusercontent.com/BioComputingUP/ProSeqViewer/master/dist/sqv-bundle.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,11 +27,16 @@
             font-style: italic;
             color: grey;
         }
+        .no-results {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Report Viewer</h1>
     <div id="search-container">
+        <p>Type gene names to search for:</p>
         <input type="text" id="search-box" placeholder="Type gene names...">
         <div><i>e.g., DDX17 DDX5</i></div>
     </div>
@@ -76,6 +81,15 @@
         function displayReportList(reports) {
             const reportList = document.getElementById('report-list');
             reportList.innerHTML = '';  // Clear previous results
+
+            if (reports.length === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.textContent = 'No reports found';
+                reportList.appendChild(noResults);
+                return;
+            }
+
             reports.forEach(report => {
                 const reportItem = document.createElement('div');
                 reportItem.textContent = report.title;
