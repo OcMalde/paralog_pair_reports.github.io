@@ -31,6 +31,12 @@
             color: red;
             font-weight: bold;
         }
+        .report-item {
+            color: blue;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -93,8 +99,8 @@
 
             reports.forEach(report => {
                 const reportItem = document.createElement('div');
+                reportItem.className = 'report-item';
                 reportItem.textContent = report.title;
-                reportItem.style.cursor = 'pointer';
                 reportItem.onclick = () => displayReport(report.filename);
                 reportList.appendChild(reportItem);
             });
