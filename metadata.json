@@ -1,74 +1,34 @@
 [
     {
-        "filename": "report_DDX17_DDX5.html",
-        "title": "report_DDX17_DDX5",
+        "filename": "report_DDX1_DDX10.html",
+        "title": "Report DDX1_DDX10",
         "date": "2023-01-01",
-        "tags": [
-            "example_tag"
-        ],
-        "genes": [
-            "DDX17",
-            "DDX5"
-        ]
+        "tags": ["example_tag"],
+        "genes": ["DDX1", "DDX10"],
+        "url": "https://drive.google.com/uc?export=view&id=1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W"
     },
     {
-        "filename": "report_DDX10_DDX20.html",
-        "title": "report_DDX10_DDX20",
+        "filename": "report_DDX1_DDX17.html",
+        "title": "Report DDX1_DDX17",
         "date": "2023-01-01",
-        "tags": [
-            "example_tag"
-        ],
-        "genes": [
-            "DDX10",
-            "DDX20"
-        ]
+        "tags": ["example_tag"],
+        "genes": ["DDX1", "DDX17"],
+        "url": "https://drive.google.com/uc?export=view&id=17BwnjaveU1bGWcII0hpizPkskLWl8i_I"
     },
     {
-        "filename": "report_DDX10_DDX19B.html",
-        "title": "report_DDX10_DDX19B",
+        "filename": "report_DDX1_DDX18.html",
+        "title": "Report DDX1_DDX18",
         "date": "2023-01-01",
-        "tags": [
-            "example_tag"
-        ],
-        "genes": [
-            "DDX10",
-            "DDX19B"
-        ]
+        "tags": ["example_tag"],
+        "genes": ["DDX1", "DDX18"],
+        "url": "https://drive.google.com/uc?export=view&id=1GgTipFLC1sqiT74IlSjf26MkZST-rcT0"
     },
     {
-        "filename": "report_SAMD4A_SAMD4B.html",
-        "title": "report_SAMD4A_SAMD4B",
+        "filename": "report_DDX10_DDX17.html",
+        "title": "Report DDX10_DDX17",
         "date": "2023-01-01",
-        "tags": [
-            "example_tag"
-        ],
-        "genes": [
-            "SAMD4A",
-            "SAMD4B"
-        ]
-    },
-    {
-        "filename": "report_DDX19A_DDX19B.html",
-        "title": "report_DDX19A_DDX19B",
-        "date": "2023-01-01",
-        "tags": [
-            "example_tag"
-        ],
-        "genes": [
-            "DDX19A",
-            "DDX19B"
-        ]
-    },
-    {
-        "filename": "report_DDX18_DDX19B.html",
-        "title": "report_DDX18_DDX19B",
-        "date": "2023-01-01",
-        "tags": [
-            "example_tag"
-        ],
-        "genes": [
-            "DDX18",
-            "DDX19B"
-        ]
+        "tags": ["example_tag"],
+        "genes": ["DDX10", "DDX17"],
+        "url": "https://drive.google.com/uc?export=view&id=1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM"
     }
 ]
