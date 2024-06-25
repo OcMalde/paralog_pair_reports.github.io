@@ -55,39 +55,24 @@
         async function fetchMetadata() {
             const response = await fetch('metadata.json');
             metadata = await response.json();
-            console.log('Metadata loaded:', metadata);  // Debugging line
+            console.log('Metadata loaded:', metadata);
         }
 
-        async function fetchReportArchive() {
-            const response = await fetch('reports.zip');
-            const arrayBuffer = await response.arrayBuffer();
-            return arrayBuffer;
+        async function fetchReportContent(url) {
+            const response = await fetch(url);
+            const text = await response.text();
+            return text;
         }
 
-        async function displayReport(filename) {
+        async function displayReport(url) {
             document.getElementById('report-content').innerHTML = '<div class="loading">Loading...</div>';
-            const reportContent = await fetchReportContent(filename);
+            const reportContent = await fetchReportContent(url);
             document.getElementById('report-content').innerHTML = reportContent;
-            // Re-evaluate the scripts in the loaded report content to ensure Plotly and MSA figures render
-            const scripts = document.getElementById('report-content').getElementsByTagName('script');
-            for (const script of scripts) {
-                const newScript = document.createElement('script');
-                newScript.textContent = script.textContent;
-                document.body.appendChild(newScript);
-            }
-        }
-
-        async function fetchReportContent(filename) {
-            const arrayBuffer = await fetchReportArchive();
-            const zip = new JSZip();
-            const content = await zip.loadAsync(arrayBuffer);
-            const fileContent = await content.file(filename).async('string');
-            return fileContent;
         }
 
         function displayReportList(reports) {
             const reportList = document.getElementById('report-list');
-            reportList.innerHTML = '';  // Clear previous results
+            reportList.innerHTML = '';
 
             if (reports.length === 0) {
                 const noResults = document.createElement('div');
@@ -101,21 +86,21 @@
                 const reportItem = document.createElement('div');
                 reportItem.className = 'report-item';
                 reportItem.textContent = report.title;
-                reportItem.onclick = () => displayReport(report.filename);
+                reportItem.onclick = () => displayReport(report.url);
                 reportList.appendChild(reportItem);
             });
         }
 
         function handleSearch() {
             const query = document.getElementById('search-box').value.trim().toLowerCase();
-            console.log('Searching for:', query);  // Debugging line
+            console.log('Searching for:', query);
             if (!query) {
                 document.getElementById('report-list').innerHTML = '';
                 return;
             }
 
             const queryGenes = query.split(' ').filter(Boolean);
-            console.log('Query genes:', queryGenes);  // Debugging line
+            console.log('Query genes:', queryGenes);
 
             let matchingReports = [];
 
@@ -128,7 +113,7 @@
                 });
             }
 
-            console.log('Matching reports:', matchingReports);  // Debugging line
+            console.log('Matching reports:', matchingReports);
 
             displayReportList(matchingReports);
         }
