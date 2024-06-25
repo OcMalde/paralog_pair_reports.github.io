@@ -53,7 +53,7 @@
         let metadata = [];
 
         async function fetchMetadata() {
-            const response = await fetch('metadata.json');
+            const response = await fetch('metadata.json?timestamp=' + new Date().getTime());
             metadata = await response.json();
             console.log('Metadata loaded:', metadata);
         }
