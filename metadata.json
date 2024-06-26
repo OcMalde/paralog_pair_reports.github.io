@@ -5,8 +5,7 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX10"],
-        "url": "https://drive.google.com/uc?export=view&id=1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W",
-        "downloadLink": "https://drive.google.com/uc?export=download&id=1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W"
+        "url": "https://drive.google.com/uc?export=download&id=1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W"
     },
     {
         "filename": "report_DDX1_DDX17.html",
@@ -14,8 +13,7 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX17"],
-        "url": "https://drive.google.com/uc?export=view&id=17BwnjaveU1bGWcII0hpizPkskLWl8i_I",
-        "downloadLink": "https://drive.google.com/uc?export=download&id=17BwnjaveU1bGWcII0hpizPkskLWl8i_I"
+        "url": "https://drive.google.com/uc?export=download&id=17BwnjaveU1bGWcII0hpizPkskLWl8i_I"
     },
     {
         "filename": "report_DDX1_DDX18.html",
@@ -23,8 +21,7 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX18"],
-        "url": "https://drive.google.com/uc?export=view&id=1GgTipFLC1sqiT74IlSjf26MkZST-rcT0",
-        "downloadLink": "https://drive.google.com/uc?export=download&id=1GgTipFLC1sqiT74IlSjf26MkZST-rcT0"
+        "url": "https://drive.google.com/uc?export=download&id=1GgTipFLC1sqiT74IlSjf26MkZST-rcT0"
     },
     {
         "filename": "report_DDX10_DDX17.html",
@@ -32,7 +29,6 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX10", "DDX17"],
-        "url": "https://drive.google.com/uc?export=view&id=1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM",
-        "downloadLink": "https://drive.google.com/uc?export=download&id=1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM"
+        "url": "https://drive.google.com/uc?export=download&id=1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM"
     }
 ]
