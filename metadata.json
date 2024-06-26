@@ -6,7 +6,7 @@
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX10"],
         "url": "https://drive.google.com/uc?export=view&id=1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W",
-        "webViewLink": "https://drive.google.com/file/d/1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W/view?usp=sharing"
+        "embedLink": "https://drive.google.com/file/d/1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W/preview"
     },
     {
         "filename": "report_DDX1_DDX17.html",
@@ -15,7 +15,7 @@
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX17"],
         "url": "https://drive.google.com/uc?export=view&id=17BwnjaveU1bGWcII0hpizPkskLWl8i_I",
-        "webViewLink": "https://drive.google.com/file/d/17BwnjaveU1bGWcII0hpizPkskLWl8i_I/view?usp=sharing"
+        "embedLink": "https://drive.google.com/file/d/17BwnjaveU1bGWcII0hpizPkskLWl8i_I/preview"
     },
     {
         "filename": "report_DDX1_DDX18.html",
@@ -24,7 +24,7 @@
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX18"],
         "url": "https://drive.google.com/uc?export=view&id=1GgTipFLC1sqiT74IlSjf26MkZST-rcT0",
-        "webViewLink": "https://drive.google.com/file/d/1GgTipFLC1sqiT74IlSjf26MkZST-rcT0/view?usp=sharing"
+        "embedLink": "https://drive.google.com/file/d/1GgTipFLC1sqiT74IlSjf26MkZST-rcT0/preview"
     },
     {
         "filename": "report_DDX10_DDX17.html",
@@ -33,6 +33,6 @@
         "tags": ["example_tag"],
         "genes": ["DDX10", "DDX17"],
         "url": "https://drive.google.com/uc?export=view&id=1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM",
-        "webViewLink": "https://drive.google.com/file/d/1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM/view?usp=sharing"
+        "embedLink": "https://drive.google.com/file/d/1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM/preview"
     }
 ]
