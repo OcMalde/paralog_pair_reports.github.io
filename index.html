@@ -50,9 +50,7 @@
         <div><i>e.g., DDX17 DDX5</i></div>
     </div>
     <div id="report-list"></div>
-    <div id="report-content">
-        <iframe id="report-iframe"></iframe>
-    </div>
+    <div id="report-content"></div>
 
     <script>
         let metadata = [];
@@ -63,9 +61,16 @@
             console.log('Metadata loaded:', metadata);
         }
 
-        function displayReport(url) {
-            const iframe = document.getElementById('report-iframe');
-            iframe.src = url;
+        async function fetchAndDisplayReport(url) {
+            try {
+                const response = await fetch(url, { mode: 'no-cors' });
+                const text = await response.text();
+                const reportContent = document.getElementById('report-content');
+                reportContent.innerHTML = text;
+            } catch (error) {
+                console.error('Error fetching the report:', error);
+                document.getElementById('report-content').innerHTML = '<div class="no-results">Failed to load the report</div>';
+            }
         }
 
         function displayReportList(reports) {
@@ -84,7 +89,7 @@
                 const reportItem = document.createElement('div');
                 reportItem.className = 'report-item';
                 reportItem.textContent = report.title;
-                reportItem.onclick = () => displayReport(report.embedLink);
+                reportItem.onclick = () => fetchAndDisplayReport(report.downloadLink);
                 reportList.appendChild(reportItem);
             });
         }
