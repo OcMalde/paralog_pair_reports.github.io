@@ -86,7 +86,7 @@
                 const reportItem = document.createElement('div');
                 reportItem.className = 'report-item';
                 reportItem.textContent = report.title;
-                reportItem.onclick = () => displayReport(report.webViewLink);
+                reportItem.onclick = () => displayReport(report.embedLink);
                 reportList.appendChild(reportItem);
             });
         }
