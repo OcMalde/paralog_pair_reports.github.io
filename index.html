@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Viewer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://rawgithub.com/BioComputingUP/ProSeqViewer/master/dist/assets/proseqviewer.css">
     <script src="https://rawgithub.com/BioComputingUP/ProSeqViewer/master/dist/sqv-bundle.js"></script>
     <style>
@@ -22,6 +20,8 @@
             margin-top: 40px;
             border-top: 1px solid #ccc;
             padding-top: 20px;
+            height: 600px;
+            overflow: auto;
         }
         .loading {
             font-style: italic;
@@ -36,6 +36,11 @@
             font-weight: bold;
             cursor: pointer;
             margin-bottom: 5px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -57,21 +62,6 @@
             metadata = await response.json();
         }
 
-        async function fetchAndDisplayReport(url) {
-            const response = await fetch(url, { mode: 'no-cors' });
-            const text = await response.text();
-            const reportContentDiv = document.getElementById('report-content');
-            reportContentDiv.innerHTML = text;
-
-            // Re-evaluate the scripts in the loaded report content to ensure Plotly and MSA figures render
-            const scripts = reportContentDiv.getElementsByTagName('script');
-            for (const script of scripts) {
-                const newScript = document.createElement('script');
-                newScript.textContent = script.textContent;
-                document.body.appendChild(newScript);
-            }
-        }
-
         function displayReportList(reports) {
             const reportList = document.getElementById('report-list');
             reportList.innerHTML = '';
@@ -88,9 +78,14 @@
                 const reportItem = document.createElement('div');
                 reportItem.className = 'report-item';
                 reportItem.textContent = report.title;
-                reportItem.onclick = () => fetchAndDisplayReport(report.url);
+                reportItem.onclick = () => displayReport(report.url);
                 reportList.appendChild(reportItem);
             });
+        }
+
+        function displayReport(url) {
+            const reportContentDiv = document.getElementById('report-content');
+            reportContentDiv.innerHTML = `<iframe src="${url}"></iframe>`;
         }
 
         function handleSearch() {
