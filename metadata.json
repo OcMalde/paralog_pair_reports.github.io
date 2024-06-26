@@ -5,7 +5,8 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX10"],
-        "url": "https://drive.google.com/uc?export=download&id=1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W"
+        "url": "https://drive.google.com/file/d/1gcagmM-BRXvzFmVC2N1BecbIcdaaqI_W/preview"
+        
     },
     {
         "filename": "report_DDX1_DDX17.html",
@@ -13,7 +14,7 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX17"],
-        "url": "https://drive.google.com/uc?export=download&id=17BwnjaveU1bGWcII0hpizPkskLWl8i_I"
+        "url": "https://drive.google.com/file/d/17BwnjaveU1bGWcII0hpizPkskLWl8i_I/preview"
     },
     {
         "filename": "report_DDX1_DDX18.html",
@@ -21,7 +22,7 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX1", "DDX18"],
-        "url": "https://drive.google.com/uc?export=download&id=1GgTipFLC1sqiT74IlSjf26MkZST-rcT0"
+        "url": "https://drive.google.com/file/d/1GgTipFLC1sqiT74IlSjf26MkZST-rcT0/preview"
     },
     {
         "filename": "report_DDX10_DDX17.html",
@@ -29,6 +30,6 @@
         "date": "2023-01-01",
         "tags": ["example_tag"],
         "genes": ["DDX10", "DDX17"],
-        "url": "https://drive.google.com/uc?export=download&id=1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM"
+        "url": "https://drive.google.com/file/d/1LEeIHq7MrxZyR5jbbgBFvBWCeQGCNheM/preview"
     }
 ]
